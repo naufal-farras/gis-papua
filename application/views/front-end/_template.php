@@ -3,22 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
     <!-- Title -->
-    <title>GIS SEKOLAH GRATIS</title>
+    <title>Rumah Belajar Papua</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="<?= base_url('./mag/img/core-img/logo1.png') ?>">
+    <link rel="icon" href="<?= base_url('icon.png') ?>">
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="<?= base_url('mag/style.css') ?>">
-
-
-
 </head>
 
 <body>
@@ -40,7 +32,7 @@
                 <nav class="classy-navbar justify-content-between" id="magNav">
 
                     <!-- Nav brand -->
-                    <a href="index.html" class="nav-brand"><img src="mag/img/core-img/logo.png" alt=""></a>
+                    <a href="<?= base_url('') ?>" class="nav-brand"><img src="<?= base_url('icon2.png') ?>" alt=""></a>
 
                     <!-- Navbar Toggler -->
                     <div class="classy-navbar-toggler">
@@ -59,7 +51,7 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li class="active"><a href="<?= base_url('web') ?>">Home</a></li>
+                                    <li class="active"><a href="<?= base_url('') ?>">Home</a></li>
                                     <li><a href="<?= base_url('web/profil') ?>">Profil</a></li>
                                     <li><a href="<?= base_url('web/lokasi') ?>">Lokasi</a> </li>
                                     <li><a href="<?= base_url('web/berita') ?>">Berita</a></li>
@@ -70,16 +62,7 @@
                         </div>
 
                         <div class="top-meta-data d-flex align-items-center">
-                            <!-- Top Search Area -->
-                            <!-- <div class="top-search-area">
-                                <form action="index.html" method="post">
-                                    <input type="search" name="top-search" id="topSearch" placeholder="Search and hit enter...">
-                                    <button type="submit" class="btn"><i class="fa fa-search" aria-hidden="true"></i></button>
-                                </form>
-                            </div> -->
-                            <!-- Login -->
-                            <!-- <a href="login.html" class="login-btn"><i class="fa fa-user" aria-hidden="true"></i></a> -->
-                            <!-- Submit Video -->
+
                             <a href="<?= base_url('auth') ?>" class="submit-video"><span><i class="fa fa-cloud-upload"></i></span> <span class="video-text"><i class="fa fa-user" aria-hidden="true"></i> LOGIN</span></a>
                         </div>
                     </div>
@@ -90,14 +73,65 @@
     <!-- ##### Header Area End ##### -->
 
     <!-- ##### Hero Area Start ##### -->
-    <div class="hero-area owl-carousel width='20' ">
-        <!-- Single Blog Post -->
-        <!-- <div class="hero-blog-post bg-img " style="background-image:
-         url(../mag/img/sampul.png);">
-            <div class="hero-blog-post bg-img " style="background-image:
-         url(./mag/img/sampul.png);"> -->
+    <!-- <div class="hero-area owl-carousel width='20' ">
+
         <div class="hero-blog-post bg-img " style="background-image: url(<?php echo base_url(); ?>./mag/img/sampul.png);">
 
+        </div>
+    </div> -->
+
+    <div class="hero-area owl-carousel">
+        <!-- Single Blog Post -->
+        <div class="hero-blog-post bg-img bg-overlay" style="background-image: url(<?= base_url('uploads/sampul/sentanilake.jpg') ?>);">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12">
+                        <!-- Post Contetnt -->
+                        <div class="post-content text-center">
+
+                            <a href="#" class="post-title" data-animation="fadeInUp" data-delay="1000ms">Halo, Selamat Datang</a>
+                            <div class="post-meta" data-animation="fadeInUp" data-delay="200ms">
+                                <?php
+                                // $tgl = date('l, d-m-Y');
+                                $tgl = date('l, M d, Y');
+
+
+                                ?>
+                                <a href="#"> <?php echo $tgl; ?></a>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Single Blog Post -->
+        <div class="hero-blog-post bg-img bg-overlay" style="background-image: url(<?= base_url('uploads/sampul/sentanilakee.jpg') ?>);">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12">
+                        <!-- Post Contetnt -->
+                        <div class="post-content text-center">
+                            <a href="#" class="post-title" data-animation="fadeInUp" data-delay="400ms">Halo, Selamat Datang</a>
+                            <div class="post-meta" data-animation="fadeInUp" data-delay="200ms">
+                                <?php
+                                // $tgl = date('l, d-m-Y');
+                                $tgl = date('l, M d, Y');
+
+
+                                ?>
+                                <a href="#"> <?php echo $tgl; ?></a>
+                            </div>
+
+                            <!-- <a href="#" class="video-play" data-animation="bounceIn" data-delay="500ms"><i class="fa fa-play"></i></a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     </div>
@@ -132,11 +166,6 @@
                                 <a href="<?= base_url('web/beritadetail/')  . $r->id_berita ?>"><?= $r->judul ?></a> </h4>
                                 <?= substr($r->isi_berita, 0, 45) . "..." ?>
 
-                                <!-- <div class="post-meta d-flex justify-content-between">
-                                    <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 34</a>
-                                    <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 84</a>
-                                    <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 14</a>
-                                </div> -->
                         </div>
 
                     </div>
@@ -146,7 +175,7 @@
 
             <!-- Sidebar Widget -->
             <div class="single-sidebar-widget">
-                <a href="#" class="add-img"><img src="img/bg-img/add.png" alt=""></a>
+                <!-- <a href="#" class="add-img"><img src="img/bg-img/add.png" alt=""></a> -->
             </div>
 
             <!-- Sidebar Widget -->
@@ -174,8 +203,6 @@
 
                                 <a href="<?= base_url('web/beritadetail/')  . $r->id_berita ?>"><?= $r->judul ?></a> </h4>
                                 <?= substr($r->isi_berita, 0, 45) . "..." ?>
-
-
                         </div>
 
                     </div>
@@ -197,16 +224,8 @@
              Main Posts Area
         <<<<<<<<<<<<<<<<<<<<< -->
         <div class="mag-posts-content mt-30 mb-30 p-30 box-shadow">
-            <!-- Trending Now Posts Area -->
 
-
-            <!-- Feature Video Posts Area -->
             <?= $contents; ?>
-
-
-
-
-            <!-- Sports Videos -->
 
         </div>
 

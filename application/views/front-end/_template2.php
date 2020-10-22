@@ -12,7 +12,8 @@
     <title>GIS SEKOLAH GRATIS</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="<?= base_url('../mag/img/core-img/logo1.png') ?>">
+    <link rel="icon" href="<?= base_url('icon.png') ?>">
+
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="<?= base_url('mag/style.css') ?>">
@@ -40,7 +41,8 @@
                 <nav class="classy-navbar justify-content-between" id="magNav">
 
                     <!-- Nav brand -->
-                    <a href="index.html" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
+                    <a href="<?= base_url('') ?>" class="nav-brand"><img src="<?= base_url('icon2.png') ?>" alt=""></a>
+
 
                     <!-- Navbar Toggler -->
                     <div class="classy-navbar-toggler">
