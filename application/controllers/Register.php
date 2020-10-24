@@ -20,6 +20,7 @@ class Register extends CI_Controller
         $this->form_validation->set_rules('password', 'PASSWORD', 'required');
         // $this->form_validation->set_rules('password_conf', 'PASSWORD', 'required|matches[password]');
         $cek = $this->db->query("SELECT * FROM admin where username='" . $this->input->post('username') . "' or email='" . $this->input->post('email') . "'");
+
         if ($cek->num_rows() >= 1) {
             echo '<script language="javascript">';
             echo 'alert("Pendaftaran Gagal Username atau email sudah Digunakan.")';
@@ -48,19 +49,20 @@ class Register extends CI_Controller
     }
     public function resetpass()
     {
-        $cek = $this->db->query("SELECT * FROM admin where email='" . $this->input->post('email') . "'");
-        if ($cek->num_rows() < 0) {
+        $email = $this->input->post('email');
+
+        $cek = $this->db->query("SELECT * FROM admin where email='" . $email . "'");
+        if ($cek->num_rows() <= 0) {
             echo '<script language="javascript">';
             echo 'alert("Email Tidak Terdaftar")';
             echo '</script>';
             redirect('auth/forget', 'refresh');
         } else {
-
-            // $data['email']  =    $this->input->post('email');
             $email = $this->input->post('email');
             $this->m_account->send_reset($email);
             echo '<script language="javascript">';
             echo 'alert("Reset Password Berhasil, Cek Email Anda")';
+            echo $email;
             echo '</script>';
             redirect('auth', 'refresh');
             // redirect(site_url('auth'));
