@@ -53,10 +53,10 @@
                     </a>
                 </div>
                 <div class="login-form">
-                    <form>
+                    <form method="post" action="<?= base_url('Register/resetpass') ?>">
                         <div class="form-group">
                             <label>Email address</label>
-                            <input type="email" class="form-control" placeholder="Email">
+                            <input type="email" class="form-control" name="email" placeholder="Email">
                         </div>
                         <button type="submit" class="btn btn-primary btn-flat m-b-15">Submit</button>
                     </form>

@@ -1,8 +1,9 @@
-<div class="section-heading">
-    <h5>BERITA</h5>
-</div>
-<div class="col-12 col-xl-12">
+<div class="col-9 col-xl-9 col-sm-9 m-4 d-flex flex-wrap ">
+
     <div class="archive-posts-area bg-white p-30 mb-30 box-shadow">
+        <div class="section-heading">
+            <h5>BERITA</h5>
+        </div>
         <?php foreach ($ab->result() as $r) { ?>
             <!-- Single Catagory Post -->
             <div class="single-catagory-post d-flex flex-wrap">
@@ -16,11 +17,6 @@
 
                 <!-- Post Contetnt -->
                 <div class="post-content">
-                    <!-- <div class="post-meta">
-                        <a href="#">MAY 8, 2018</a>
-                        <a href="archive.html">lifestyle</a>
-                    </div> -->
-
                     <a class="post-title" href="<?= base_url('web/beritadetail/') . $r->id_berita ?>"><?= $r->judul ?></a>
                     <!-- Post Meta -->
                     <div class="post-meta-2">
@@ -45,4 +41,5 @@
         </nav>
 
     </div>
+
 </div>

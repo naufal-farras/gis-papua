@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 $config['base_url'] = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http");
 $config['base_url'] .= "://" . $_SERVER['HTTP_HOST'];
@@ -7,11 +7,11 @@ $config['base_url'] .= str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERV
 
 $config['index_page'] = '';
 
-$config['uri_protocol']	= 'REQUEST_URI';
+$config['uri_protocol']    = 'REQUEST_URI';
 
 $config['url_suffix'] = '';
 
-$config['language']	= 'english';
+$config['language']    = 'english';
 
 $config['charset'] = 'UTF-8';
 
@@ -21,7 +21,7 @@ $config['subclass_prefix'] = 'MY_';
 
 $config['composer_autoload'] = FALSE;
 
-$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
+$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-@\=';
 
 $config['enable_query_strings'] = FALSE;
 $config['controller_trigger'] = 'c';
@@ -56,11 +56,11 @@ $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = FALSE;
 
-$config['cookie_prefix']	= '';
-$config['cookie_domain']	= '';
-$config['cookie_path']		= '/';
-$config['cookie_secure']	= FALSE;
-$config['cookie_httponly'] 	= FALSE;
+$config['cookie_prefix']    = '';
+$config['cookie_domain']    = '';
+$config['cookie_path']        = '/';
+$config['cookie_secure']    = FALSE;
+$config['cookie_httponly']     = FALSE;
 
 $config['standardize_newlines'] = FALSE;
 

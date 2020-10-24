@@ -63,7 +63,7 @@
 
                         <div class="top-meta-data d-flex align-items-center">
 
-                            <a href="<?= base_url('auth') ?>" class="submit-video"><span><i class="fa fa-cloud-upload"></i></span> <span class="video-text"><i class="fa fa-user" aria-hidden="true"></i> LOGIN</span></a>
+                            <a href="<?= base_url('auth') ?>" class="submit-video"><span><i class="fa fa-user"></i></span> <span class="video-text"><i class="fa fa-user" aria-hidden="true"></i> LOGIN</span></a>
                         </div>
                     </div>
                 </nav>
@@ -94,8 +94,6 @@
                                 <?php
                                 // $tgl = date('l, d-m-Y');
                                 $tgl = date('l, M d, Y');
-
-
                                 ?>
                                 <a href="#"> <?php echo $tgl; ?></a>
 

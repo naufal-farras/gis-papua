@@ -72,6 +72,11 @@
                             <input type="email" name="email" class="form-control" placeholder="Email">
                             <p> <?php echo form_error('email'); ?> </p>
                         </div>
+                        <!-- <div class="form-group">
+                            <label>Masukan Alamat</label>
+                            <textarea class="form-control" name="alamat" placeholder="jln.sentani" class="texteditor"></textarea>
+                            <p> <?php echo form_error('alamat'); ?> </p>
+                        </div> -->
                         <div class="form-group">
                             <label>Password</label>
                             <input type="password" type="password" required name="password" class="form-control" placeholder="Password">
@@ -81,10 +86,10 @@
                                 <input type="checkbox"> Agree the terms and policy
                             </label>
                         </div> -->
-                        <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30" name="btnSubmit" value="Daftar">Register</button>
+                        <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30" name="btnSubmit" value="Daftar">Daftar</button>
 
                         <div class="register-link m-t-15 text-center">
-                            <p>Already have account ? <a href=<?= base_url('auth') ?>> Sign in</a></p>
+                            <p>Sudah Mempumyai Akun ? <a href=<?= base_url('auth') ?>> Login Sekarang</a></p>
                         </div>
                     </form>
                 </div>

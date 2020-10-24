@@ -3,13 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-    <!-- Title -->
-    <title>GIS SEKOLAH GRATIS</title>
+    <title>Rumah Belajar Papua</title>
 
     <!-- Favicon -->
     <link rel="icon" href="<?= base_url('icon.png') ?>">
@@ -82,7 +76,7 @@
                             <!-- Login -->
                             <!-- <a href="login.html" class="login-btn"><i class="fa fa-user" aria-hidden="true"></i></a> -->
                             <!-- Submit Video -->
-                            <a href="<?= base_url('auth') ?>" class="submit-video"><span><i class="fa fa-cloud-upload"></i></span> <span class="video-text"><i class="fa fa-user" aria-hidden="true"></i> LOGIN</span></a>
+                            <a href="<?= base_url('auth') ?>" class="submit-video"><span><i class="fa fa-user"></i></span> <span class="video-text"><i class="fa fa-user" aria-hidden="true"></i> LOGIN</span></a>
                         </div>
                     </div>
                 </nav>
@@ -94,11 +88,22 @@
     <!-- ##### Hero Area Start ##### -->
     <div class="hero-area owl-carousel">
         <!-- Single Blog Post -->
-        <div class="hero-blog-post bg-img " style="background-image: url(<?php echo base_url(); ?>./mag/img/sampul.png);">
-            <div class="hero-blog-post bg-img " style="background-image: url(./mag/img/sampul.png);">
-                <div class="container h-100">
-                    <div class="row h-100 align-items-center">
-                        <div class="col-12">
+        <div class="hero-blog-post bg-img bg-overlay" style="background-image: url(<?= base_url('uploads/sampul/sentanilake.jpg') ?>);">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12">
+                        <!-- Post Contetnt -->
+                        <div class="post-content text-center">
+
+                            <a href="#" class="post-title" data-animation="fadeInUp" data-delay="1000ms">Halo, Selamat Datang</a>
+                            <div class="post-meta" data-animation="fadeInUp" data-delay="200ms">
+                                <?php
+                                // $tgl = date('l, d-m-Y');
+                                $tgl = date('l, M d, Y');
+                                ?>
+                                <a href="#"> <?php echo $tgl; ?></a>
+
+                            </div>
 
                         </div>
                     </div>
@@ -106,20 +111,40 @@
             </div>
         </div>
 
+        <!-- Single Blog Post -->
+        <div class="hero-blog-post bg-img bg-overlay" style="background-image: url(<?= base_url('uploads/sampul/sentanilakee.jpg') ?>);">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12">
+                        <!-- Post Contetnt -->
+                        <div class="post-content text-center">
+                            <a href="#" class="post-title" data-animation="fadeInUp" data-delay="400ms">Halo, Selamat Datang</a>
+                            <div class="post-meta" data-animation="fadeInUp" data-delay="200ms">
+                                <?php
+                                // $tgl = date('l, d-m-Y');
+                                $tgl = date('l, M d, Y');
 
 
+                                ?>
+                                <a href="#"> <?php echo $tgl; ?></a>
+                            </div>
 
-
+                            <!-- <a href="#" class="video-play" data-animation="bounceIn" data-delay="500ms"><i class="fa fa-play"></i></a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- ##### Hero Area End ##### -->
 
     <!-- ##### Mag Posts Area Start ##### -->
-    <section class="mag-posts-area d-flex flex-wrap">
+    <section class="mag-posts-area d-flex">
 
         <!-- >>>>>>>>>>>>>>>>>>>>
          Post Left Sidebar Area
         <<<<<<<<<<<<<<<<<<<<< -->
-        <div class="post-sidebar-area left-sidebar mt-30 mb-30 bg-white box-shadow">
+        <div class=" mt-20 mb-20 bg-white box-shadow mt-4 mb-5  ">
             <!-- Sidebar Widget -->
             <div class="single-sidebar-widget p-30">
                 <!-- Section Title -->
@@ -149,18 +174,10 @@
                 <?php } ?>
 
             </div>
-
-
-
-
         </div>
 
-        <div class="mag-posts-content mt-30 mb-30 p-30 box-shadow">
 
-            <?= $contents; ?>
-
-
-        </div>
+        <?= $contents; ?>
 
 
     </section>

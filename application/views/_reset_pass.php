@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>GIS-LOGIN</title>
+    <title>Ela Admin - HTML5 Admin Template</title>
     <meta name="description" content="Ela Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -45,7 +45,7 @@
     </style>
 </head>
 
-<body>
+<body class="bg-dark">
 
     <div class="sufee-login d-flex align-content-center flex-wrap">
         <div class="container">
@@ -56,34 +56,26 @@
                     </a>
                 </div>
                 <div class="login-form">
-                    <form action="<?= base_url('auth/login') ?>" method="post">
+                    <form method="post" action="<?= base_url('Register/update_pass') ?>">
+
                         <div class="form-group">
-                            <label>User ID </label>
-                            <input type="text" name="user" class="form-control" placeholder="User">
-                        </div>
-                        <div class="form-group">
-                            <label>Password</label>
-                            <input type="password" name="pass" class="form-control" placeholder="Password">
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox"> Remember Me
-                            </label>
-                            <label class="pull-right">
-                                <a href="<?= base_url('auth/forget') ?>">Lupa Password ?</a>
-                            </label>
+
+                            <input type="email" readonly name="email" class="form-control" value="<?= $this->uri->segment('3') ?>">
 
                         </div>
-                        <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Masuk</button>
-                        <!-- <div class="social-login-content">
-                        <div class="social-button">
-                            <button type="button" class="btn social facebook btn-flat btn-addon mb-3"><i class="ti-facebook"></i>Sign in with facebook</button>
-                            <button type="button" class="btn social twitter btn-flat btn-addon mt-2"><i class="ti-twitter"></i>Sign in with twitter</button>
+
+                        <div class="form-group">
+                            <label> Masukan Password Baru</label>
+                            <input type="password" type="password" required name="password" class="form-control" placeholder="Password">
                         </div>
-                    </div> -->
-                        <div class="register-link m-t-15 text-center">
-                            <p>Belum punya akun? <a href="<?= base_url('auth/regis') ?>"> Daftar Sekarang</a></p>
-                        </div>
+                        <!-- <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> Agree the terms and policy
+                            </label>
+                        </div> -->
+                        <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30" name="btnSubmit">Update</button>
+
+
                     </form>
                 </div>
             </div>

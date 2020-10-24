@@ -24,6 +24,12 @@ class Auth extends CI_Controller
 		$this->load->view('_forget');
 	}
 
+	public function reset_pass()
+	{
+
+		$this->load->view('_reset_pass');
+	}
+
 	public function panel()
 	{
 		$url = base_url('dashboard');
@@ -58,16 +64,16 @@ class Auth extends CI_Controller
 			echo "False";
 		}
 	}
-	public function aktifasi($nama)
+	public function aktifasi($username)
 	{
 		$status = "aktif"; {
 			$data = array(
 				'status'         => $status,
 			);
-			$this->db->where('username', $nama);
+			$this->db->where('username', $username);
 			$this->db->update('admin', $data);
 			redirect('auth');
 		}
-		echo $nama;
+		// echo $nama;
 	}
 }
