@@ -76,10 +76,10 @@
                                         </td>
                                     </tr>
 
-
-                            </tbody>
-                        <?php $no++;
+                                <?php $no++;
                                 } ?>
+                            </tbody>
+
                         </table>
                     </div>
                 </div>

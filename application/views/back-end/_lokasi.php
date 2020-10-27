@@ -62,15 +62,15 @@
                                             <div>
                                                 <a href="<?= base_url('dashboard/lokasi_edit/' . $r->id) ?>" class="btn btn-primary mb-2 "><i class="fa fa-pencil-square-o"></i></a>
 
-                                                <a href="<?= base_url('dashboard/lokasi_delete/' . $r->id)  ?>" class="btn btn-danger mb-2 "><i class="fa fa-trash-o"></i>&nbsp;</a>
+                                                <a href="<?= base_url('dashboard/lokasi_delete/' . $r->id)  ?>" class="btn btn-danger mb-2 " onClick="return confirm('Apakah Anda yakin akan Menghapus ?')"><i class="fa fa-trash-o"></i>&nbsp;</a>
                                             </div>
                                         </td>
                                     </tr>
-
+                                <?php $no++;
+                                } ?>
 
                             </tbody>
-                        <?php $no++;
-                                } ?>
+
                         </table>
                     </div>
                 </div>

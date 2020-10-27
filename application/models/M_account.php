@@ -70,7 +70,12 @@ class M_account extends CI_Model
             <a href='$url'> Reset Password</a>";
 
             $mail->Body = $mailContent;
-            $mail->send();
+            if ($mail->send()) {
+                echo '<script language="javascript">';
+                echo 'alert("Reset Password Berhasil, Cek Email Anda")';
+                echo '</script>';
+                redirect('auth', 'refresh');
+            }
         } catch (Exception $e) {
             echo $mail->ErrorInfo;
         }

@@ -18,6 +18,8 @@ class Register extends CI_Controller
         $this->form_validation->set_rules('username', 'USERNAME', 'required');
         $this->form_validation->set_rules('email', 'EMAIL', 'required|valid_email');
         $this->form_validation->set_rules('password', 'PASSWORD', 'required');
+        $this->form_validation->set_rules('alamat', 'ALAMAT', 'required');
+
         // $this->form_validation->set_rules('password_conf', 'PASSWORD', 'required|matches[password]');
         $cek = $this->db->query("SELECT * FROM admin where username='" . $this->input->post('username') . "' or email='" . $this->input->post('email') . "'");
 
@@ -33,6 +35,7 @@ class Register extends CI_Controller
             $data['nama']   =    $this->input->post('name');
             $data['level']  =    $satu;
             $data['email']  =    $this->input->post('email');
+            $data['alamat']  =    $this->input->post('alamat');
             $email = $this->input->post('email');
             $username = $this->input->post('username');
             $nama = $this->input->post('name');
@@ -60,11 +63,7 @@ class Register extends CI_Controller
         } else {
             $email = $this->input->post('email');
             $this->m_account->send_reset($email);
-            echo '<script language="javascript">';
-            echo 'alert("Reset Password Berhasil, Cek Email Anda")';
-            echo $email;
-            echo '</script>';
-            redirect('auth', 'refresh');
+
             // redirect(site_url('auth'));
         }
     }

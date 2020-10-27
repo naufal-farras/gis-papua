@@ -11,6 +11,8 @@
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="<?= base_url('mag/style.css') ?>">
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+
 
 
 </head>
@@ -48,16 +50,17 @@
                     <div class="login-content bg-white p-30 box-shadow">
                         <!-- Section Title -->
                         <div class="section-heading">
-                            <img src="<?= base_url('icon3.png') ?>" alt="">
-
+                            <a href="<?= base_url('') ?>">
+                                <img src="<?= base_url('icon3.png') ?>" alt="">
+                            </a>
                         </div>
 
                         <form action="<?= base_url('auth/login') ?>" method="post">
                             <div class="form-group">
-                                <input type="text" name="user" class="form-control" id="exampleInputEmail1" placeholder="User Name">
+                                <input type="text" name="user" id="username" required class="form-control" id="exampleInputEmail1" placeholder="User Name">
                             </div>
                             <div class="form-group">
-                                <input type="password" name="pass" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                <input type="password" name="pass" id="password" required class="form-control" id="exampleInputPassword1" placeholder="Password">
                             </div>
                             <!-- <div class="form-group">
                                 <div class="custom-control custom-checkbox mr-sm-2">
@@ -68,7 +71,7 @@
 
 
                             <div class="form-group">
-                                <button type="submit" class=" float-left btn mag-btn m-2 ">Login</button>
+                                <button type="submit" class="btn-register float-left btn mag-btn m-2 ">Login</button>
 
                                 <a class="float-right mt-4 text-primary" href="<?= base_url('auth/forget') ?>"> Lupa Password ?</a>
 
@@ -100,12 +103,22 @@
     <!-- ##### Footer Area Start ##### -->
     <?php $this->load->view('footer_front'); ?>
 
-    <!-- ##### Footer Area End ##### -->
-    <script src="
-    <?= base_url('mag/js/jquery/jquery-2.2.4.min.js') ?>"></script>
 
+
+
+
+    <!-- ##### Footer Area End ##### -->
+    <script src=" <?= base_url('mag/js/jquery/jquery-2.2.4.min.js') ?>"></script>
 
     <!-- Popper js -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+
+    <!-- <script>
+        document.querySelector(".third").addEventListener('click', function() {
+            swal("Our First Alert", "With some body text and success icon!", "success");
+        });
+    </script> -->
+
     <script src="<?= base_url('mag/js/bootstrap/popper.min.js') ?>"></script>
     <!-- Bootstrap js -->
     <script src="<?= base_url('mag/js/bootstrap/bootstrap.min.js') ?>"></script>

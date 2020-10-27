@@ -63,16 +63,16 @@
 
 
 
-                                                <a href="<?= base_url('dashboard/berita_delete/' . $r->id_berita) ?>" class="btn btn-danger mb-2 "><i class="fa fa-trash-o"></i>&nbsp;</a>
+                                                <a href="<?= base_url('dashboard/berita_delete/' . $r->id_berita) ?>" class="btn btn-danger mb-2 " onClick="return confirm('Apakah Anda yakin akan Menghapus ?')"><i class="fa fa-trash-o"></i>&nbsp;</a>
 
                                             </div>
                                         </td>
                                     </tr>
 
-
-                            </tbody>
-                        <?php $no++;
+                                <?php $no++;
                                 } ?>
+                            </tbody>
+
 
                         </table>
                     </div>

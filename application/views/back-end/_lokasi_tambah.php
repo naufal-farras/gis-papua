@@ -141,9 +141,13 @@
 
 <div class="clearfix"></div>
 
-<!-- <script src="http://maps.google.com/maps/api/js?sensor=false"></script> -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-6424NGTczmQEBXcLzQk2QmbJEOKvat8&language=id&region=ID"></script>
+<?php
+foreach ($key->result() as $row) {
 
+    $key = $row->api_key;
+?>
+    <script src="<?= $key ?>"></script>
+<?php }  ?>
 <script>
     var marker;
     var defaultCenter = {

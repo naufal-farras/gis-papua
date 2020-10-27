@@ -47,22 +47,32 @@
                                 <input name="name" placeholder="Nama" type="text" class="form-control" required="" value="<?= $ad['nama'] ?>">
                             </div>
 
+                            <div class="form-group mb-3">
+                                <label class="control-label mb-1"><strong>Alamat</strong></label>
+
+                                <textarea name="alamat" placeholder="Alamat" type="text" class="form-control" required> <?= $ad['alamat'] ?></textarea>
+                            </div>
 
 
                             <div class="form-group mb-3">
                                 <label class="control-label mb-1"><strong>Email</strong></label>
-                                <input placeholder="email" name="email" type="email" class="form-control" required="" value="<?= $ad['email'] ?>">
+                                <input placeholder="email" readonly name="email" type="email" class="form-control" required="" value="<?= $ad['email'] ?>">
                             </div>
 
                             <div class="form-group mb-3">
+                                <?php
+                                $pass = $ad['password'];
+                                ?>
                                 <label class="control-label mb-1"><strong>Password</strong></label>
-                                <input placeholder="password" name="password" type="password" class="form-control" required="" value="<?= $ad['password'] ?>">
+                                <input placeholder="password" name="password" id="myInput" type="password" class="form-control col-4" required="" value="<?= $pass ?>">
 
+
+                                <span class="add-on input-group-addon" onclick="myFunction()" style="cursor: pointer;"> <i class="fa fa-eye"> Lihat Password </i></span>
 
                             </div>
 
                             <div>
-                                <button name="update" type="submit" class="btn btn-success">
+                                <button name="update" type="submit" class="btn btn-success mt-2">
                                     <i class="fa fa-save"></i>&nbsp; Update</button>
                                 <?php if ($this->session->level  == '0') { ?>
                                     <a href="<?= base_url('dashboard/user') ?>" class="btn btn-primary btn-flat"><i class="fa fa-repeat"></i> Kembali</a>
@@ -133,5 +143,15 @@
         bacaGambar(this);
     });
 </script> -->
+<script>
+    function myFunction() {
+        var x = document.getElementById("myInput");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+</script>
 
 <div class="clearfix"></div>

@@ -1,6 +1,8 @@
 <?php
+
 class Auth extends CI_Controller
 {
+
 
 	function __construct()
 	{
@@ -61,7 +63,11 @@ class Auth extends CI_Controller
 			$url = base_url('panel');
 			redirect($url);
 		} else {
-			echo "False";
+			echo '<script language="javascript">';
+			echo 'alert("Username/Password Salah")';
+			echo '</script>';
+
+			redirect('auth', 'refresh');
 		}
 	}
 	public function aktifasi($username)
@@ -72,8 +78,10 @@ class Auth extends CI_Controller
 			);
 			$this->db->where('username', $username);
 			$this->db->update('admin', $data);
-			redirect('auth');
+			echo '<script language="javascript">';
+			echo 'alert("Aktifasi Berhasil Akun ada telah aktif")';
+			echo '</script>';
+			redirect('auth', 'refresh');
 		}
-		// echo $nama;
 	}
 }

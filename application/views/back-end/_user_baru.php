@@ -61,17 +61,16 @@
 
                                         <td>
                                             <div>
-                                                <a href="<?= base_url('dashboard/user_baru_update/' . $r->id_admin) ?>" class="btn btn-primary mb-2 ">Aktifkan</a>
+                                                <a href="<?= base_url('dashboard/user_baru_update/' . $r->id_admin) ?>" class="btn btn-primary mb-2 " onClick="return confirm('Apakah Anda yakin akan Meng-Aktifkan ?')">Aktifkan</a>
 
                                                 <!-- <a href="<?= base_url('dashboard/user_baru_tolak/' . $r->id_admin) ?>" class="btn btn-danger mb-2 ">Non-Aktifkan&nbsp;</a> -->
                                             </div>
                                         </td>
                                     </tr>
-
-
-                            </tbody>
-                        <?php $no++;
+                                <?php $no++;
                                 } ?>
+                            </tbody>
+
                         </table>
                     </div>
                 </div>

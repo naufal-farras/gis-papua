@@ -4,7 +4,7 @@
         <div class="section-heading">
             <h5>BERITA</h5>
         </div>
-        <?php foreach ($ab->result() as $r) { ?>
+        <?php foreach ($results as $r) { ?>
             <!-- Single Catagory Post -->
             <div class="single-catagory-post d-flex flex-wrap">
                 <!-- Thumbnail -->
@@ -31,14 +31,17 @@
         <?php } ?>
 
         <!-- Pagination -->
+        <div style="text-align:center"><?php echo $pagination; ?></div>
+        <div style="text-align:right">Total Berita: <?php echo $result_amount; ?></div>
         <nav>
-            <ul class="pagination">
+            <!-- <ul class="pagination">
+
                 <li class="page-item active"><a class="page-link" href="#">1</a></li>
                 <li class="page-item"><a class="page-link" href="#">2</a></li>
                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                 <li class="page-item"><a class="page-link" href="#"><i class="ti-angle-right"></i></a></li>
             </ul>
-        </nav>
+        </nav> -->
 
     </div>
 

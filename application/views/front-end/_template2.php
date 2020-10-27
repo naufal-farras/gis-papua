@@ -58,7 +58,7 @@
                                     <li class="active"><a href="<?= base_url('web') ?>">Home</a></li>
                                     <li><a href="<?= base_url('web/profil') ?>">Profil</a></li>
                                     <li><a href="<?= base_url('web/lokasi') ?>">Lokasi</a> </li>
-                                    <li><a href="<?= base_url('web/berita') ?>">Berita</a></li>
+                                    <li><a href="<?= base_url('web/berita/1') ?>">Berita</a></li>
                                     <li><a href="<?= base_url('web/komentar') ?>">Komentar</a></li>
                                 </ul>
                             </div>

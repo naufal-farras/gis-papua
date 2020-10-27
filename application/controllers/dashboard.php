@@ -30,7 +30,9 @@ class Dashboard extends CI_Controller
     }
     public function index()
     {
-        $this->template->load('back-end/_template', 'back-end/_dashboard');
+        $data['key'] = $this->db->query("SELECT * from setting where id='1' ");
+
+        $this->template->load('back-end/_template', 'back-end/_dashboard', $data);
     }
 
     public function profil()
@@ -53,6 +55,7 @@ class Dashboard extends CI_Controller
     {
         $data['k'] = $this->db->get('kategori');
         $data['l'] = $this->db->get('lokasi');
+        $data['key'] = $this->db->query("SELECT * from setting where id='1' ");
 
 
         $this->template->load('back-end/_template', 'back-end/_lokasi_tambah', $data);
@@ -157,6 +160,7 @@ class Dashboard extends CI_Controller
 
         $data['k'] = $this->db->get('kategori');
         $data['lokasi'] = $this->db->get('lokasi')->result();
+        $data['key'] = $this->db->query("SELECT * from setting where id='1' ");
 
         $data['l'] = $this->db->get_where('lokasi', array('id' => $id))->row_array();
         $this->template->load('back-end/_template', 'back-end/_lokasi_detail', $data);
@@ -615,10 +619,9 @@ class Dashboard extends CI_Controller
 
     public function detail_user($id)
     {
-        // $data['admi'] = $this->db->get('admin');
-
-
         $data['ad'] = $this->db->get_where('admin', array('id_admin' => $id))->row_array();
+        // $data['pass'] = md5(['password']);
+
         $this->template->load('back-end/_template', 'back-end/_detail_user', $data);
 
 
@@ -641,6 +644,8 @@ class Dashboard extends CI_Controller
                         'nama'       => $this->input->post('name'),
                         'password'   => $this->input->post('password'),
                         'email'      => $this->input->post('email'),
+                        'alamat'      => $this->input->post('alamat'),
+
                         'gambar'     => $hasil['file_name'],
                     );
 
@@ -657,11 +662,29 @@ class Dashboard extends CI_Controller
                     'nama'       => $this->input->post('name'),
                     'password'   => $this->input->post('password'),
                     'email'      => $this->input->post('email'),
+                    'alamat'      => $this->input->post('alamat'),
+
                 );
                 $this->db->where('id_admin', $id);
                 $this->db->update('admin', $data);
                 redirect('dashboard/detail_user/' . $id);
             }
+        }
+    }
+    public function setting_api()
+    {
+
+        if (isset($_POST['update'])) {
+            $data = array(
+                'api_key'         => $this->input->post('key'),
+                // 'isi_profil'    => $this->input->post('isi'),
+            );
+            $this->db->where('id', $this->input->post('id'));
+            $this->db->update('setting', $data);
+            redirect('dashboard/setting_api');
+        } else {
+            $data['key'] = $this->db->query("SELECT * from setting where id='1' ");
+            $this->template->load('back-end/_template', 'back-end/_setting_api', $data);
         }
     }
 }

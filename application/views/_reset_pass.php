@@ -1,121 +1,93 @@
-<!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" lang="">
-<!--<![endif]-->
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Ela Admin - HTML5 Admin Template</title>
-    <meta name="description" content="Ela Admin - HTML5 Admin Template">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <!-- Title -->
+    <title>Password Baru</title>
 
-    <link rel="apple-touch-icon" href="https://i.imgur.com/QRAUqs9.png">
-    <link rel="shortcut icon" href="https://i.imgur.com/QRAUqs9.png">
+    <!-- Favicon -->
+    <link rel="icon" href="<?= base_url('icon.png') ?>">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.0/css/flag-icon.min.css">
-    <link rel="stylesheet" href="<?= base_url('dashboard/assets/css/cs-skin-elastic.css') ?>">
-    <link rel="stylesheet" href="<?= base_url('dashboard/assets/css/style.css') ?>">
-    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
-    <link href="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/jqvmap@1.5.1/dist/jqvmap.min.css" rel="stylesheet">
-
-    <link href="https://cdn.jsdelivr.net/npm/weathericons@2.1.0/css/weather-icons.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.css" rel="stylesheet" />
-
-    <style>
-        body {
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="<?= base_url('mag/style.css') ?>">
 
 
-            background: url(./uploads/papua1.png) no-repeat fixed;
-            -webkit-background-size: 100% 100%;
-            -moz-background-size: 100% 100%;
-            -o-background-size: 100% 100%;
-            background-size: 100% 100%;
-
-        }
-    </style>
 </head>
 
-<body class="bg-dark">
-
-    <div class="sufee-login d-flex align-content-center flex-wrap">
-        <div class="container">
-            <div class="login-content">
-                <div class="login-logo">
-                    <a href="index.html">
-                        <img class="align-content" src="images/logo.png" alt="">
-                    </a>
-                </div>
-                <div class="login-form">
-                    <form method="post" action="<?= base_url('Register/update_pass') ?>">
-
-                        <div class="form-group">
-
-                            <input type="email" readonly name="email" class="form-control" value="<?= $this->uri->segment('3') ?>">
-
-                        </div>
-
-                        <div class="form-group">
-                            <label> Masukan Password Baru</label>
-                            <input type="password" type="password" required name="password" class="form-control" placeholder="Password">
-                        </div>
-                        <!-- <div class="checkbox">
-                            <label>
-                                <input type="checkbox"> Agree the terms and policy
-                            </label>
-                        </div> -->
-                        <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30" name="btnSubmit">Update</button>
-
-
-                    </form>
-                </div>
-            </div>
+<body>
+    <!-- Preloader -->
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="spinner">
+            <div class="double-bounce1"></div>
+            <div class="double-bounce2"></div>
         </div>
     </div>
 
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js"></script>
-    <script src="assets/js/main.js"></script>
 
-    <!--  Chart js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.bundle.min.js"></script>
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <section class="breadcrumb-area bg-img bg-overlay" style="background-image: url(<?= base_url('uploads/sampul/sentanilake.jpg') ?>);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcrumb-content">
+                        <h2>Reset Password Baru</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Breadcrumb Area End ##### -->
 
-    <!--Chartist Chart-->
-    <script src="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartist-plugin-legend@0.6.2/chartist-plugin-legend.min.js"></script>
+    <!-- ##### Login Area Start ##### -->
+    <div class="mag-login-area py-5">
+        <div class="container h-100">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-6">
+                    <div class="login-content bg-white p-4 box-shadow">
+                        <!-- Section Title -->
+                        <div class="section-heading">
+                            <a href="<?= base_url('') ?>">
+                                <img src="<?= base_url('icon3.png') ?>" alt="">
+                            </a>
+                        </div>
+                        <form method="post" action="<?= base_url('Register/update_pass') ?>">
+                            <div class="form-group ">
+                                <input type="email" readonly class="form-control" name="email" value="<?= $this->uri->segment('3') ?>">
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery.flot@0.8.3/jquery.flot.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flot-pie@1.0.0/src/jquery.flot.pie.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flot-spline@0.0.1/js/jquery.flot.spline.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/simpleweather@3.1.0/jquery.simpleWeather.min.js"></script>
-    <script src="assets/js/init/weather-init.js"></script>
+                                <input type="password" required class="form-control" name="password" placeholder="Masukan Password Baru">
 
-    <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.js"></script>
-    <script src="assets/js/init/fullcalendar-init.js"></script>
-    <!-- Gmaps -->
-    <!--<script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false"></script>-->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2jlT6C_to6X1mMvR9yRWeRvpIgTXgddM"></script>
+                                <button type="submit" class="btn mag-btn m-2 ">Update Password</button>
+                                <a class=" mt-4 text-primary float-right" href="<?= base_url('auth') ?>"> Kembali</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- ##### Login Area End ##### -->
 
-    <script src="<?= base_url('dashboardt/assets/js/lib/gmap/gmaps.js') ?>"></script>
-    <script src="<?= base_url('dashboardt/assets/js/init/gmap-init.js') ?>"></script>
+    <!-- ##### Footer Area Start ##### -->
+    <?php $this->load->view('footer_front'); ?>
 
-    <!--Local Stuff-->
+    <!-- ##### Footer Area End ##### -->
+    <script src="
+    <?= base_url('mag/js/jquery/jquery-2.2.4.min.js') ?>"></script>
 
+
+    <!-- Popper js -->
+    <script src="<?= base_url('mag/js/bootstrap/popper.min.js') ?>"></script>
+    <!-- Bootstrap js -->
+    <script src="<?= base_url('mag/js/bootstrap/bootstrap.min.js') ?>"></script>
+    <!-- All Plugins js -->
+    <script src="<?= base_url('mag/js/plugins/plugins.js') ?>"></script>
+    <!-- Active js -->
+
+    <script src="<?= base_url('mag/js/active.js') ?>"></script>
 </body>
 
 </html>

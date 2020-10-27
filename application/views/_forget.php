@@ -48,7 +48,9 @@
                     <div class="login-content bg-white p-4 box-shadow">
                         <!-- Section Title -->
                         <div class="section-heading">
-                            <img src="<?= base_url('icon3.png') ?>" alt="">
+                            <a href="<?= base_url('') ?>">
+                                <img src="<?= base_url('icon3.png') ?>" alt="">
+                            </a>
                         </div>
                         <form method="post" action="<?= base_url('Register/resetpass') ?>">
                             <div class="form-group ">

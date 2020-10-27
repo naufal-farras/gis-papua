@@ -3,12 +3,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Web extends CI_Controller
 {
-
+    public function __construct()
+    {
+        parent::__construct();
+    }
     public function index()
     {
         $data['l'] = $this->db->query("SELECT * FROM lokasi GROUP BY nama ASC LIMIT 4");
         $data['bp'] = $this->db->query("SELECT * FROM berita GROUP BY dibaca DESC LIMIT 5");
         $data['bt'] = $this->db->query("SELECT * FROM berita GROUP BY id_berita DESC LIMIT 5");
+        $data['key'] = $this->db->query("SELECT * from setting where id='1' ");
+
         $this->template->load('front-end/_template', 'front-end/_home', $data);
     }
 
@@ -50,6 +55,7 @@ class Web extends CI_Controller
         $data['lo'] = $this->db->get_where('lokasi', array('id' => $id))->row_array();
         $data['g'] = $this->db->get_where('galeri ', array('id' => $id))->row_array();
         $data['id_lokasi'] = $id;
+        $data['key'] = $this->db->query("SELECT * from setting where id='1' ");
 
 
         $this->template->load('front-end/_template3', 'front-end/_lokasi_one', $data);
@@ -61,6 +67,7 @@ class Web extends CI_Controller
         $data['bt'] = $this->db->query("SELECT * FROM berita GROUP BY id_berita DESC LIMIT 5");
         // $data['gg'] = $this->db->query("SELECT * FROM galeri where $id");
         $data['gx'] = $this->db->query("SELECT * FROM galeri WHERE id='$id'");
+        $data['key'] = $this->db->query("SELECT * from setting where id='1' ");
 
         $data['lo'] = $this->db->get_where('lokasi', array('id' => $id))->row_array();
         $data['g'] = $this->db->get_where('galeri ', array('id' => $id))->row_array();
@@ -75,10 +82,22 @@ class Web extends CI_Controller
 
     public function berita()
     {
+        if ($this->uri->segment('3') == '' or $this->uri->segment('3') == '/') {
+            redirect(base_url('web/berita/1'));
+        }
+        // else {
+        $this->load->library('lib_pagination');                         //Load the "lib_pagination" library
+        $pg_config['sql']      = "SELECT * from berita ORDER BY id_berita DESC";              //your SQL, don't add ";" in your SQL query
+        $pg_config['per_page'] = 4;                                     //Display items per page
+        $data = $this->lib_pagination->create_pagination($pg_config);   //Load function in "lib_pagination" libraryfor create pagination. 
+        $data['title']         = "Rumah Belajar Papua";
+
+
         $data['bp'] = $this->db->query("SELECT * FROM berita GROUP BY dibaca DESC LIMIT 5");
         $data['bt'] = $this->db->query("SELECT * FROM berita GROUP BY id_berita DESC LIMIT 5");
-        $data['ab'] = $this->db->query("SELECT * FROM berita GROUP BY id_berita DESC LIMIT 4");
+        // $data['ab'] = $this->db->query("SELECT * FROM berita GROUP BY id_berita DESC LIMIT 4");
         $this->template->load('front-end/_template2', 'front-end/_berita', $data);
+        // }
     }
     public function beritadetail($id)
     {

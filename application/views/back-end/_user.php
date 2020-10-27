@@ -62,16 +62,16 @@
                                                 <a href="<?= base_url('dashboard/detail_user/' . $r->id_admin) ?>" class="btn btn-primary mb-2 ">Lihat User</a>
                                                 <?php if ($r->level == '1') { ?>
 
-                                                    <a href="<?= base_url('dashboard/user_baru_tolak/' . $r->id_admin)  ?>" class="btn btn-danger mb-2 ">Non-Aktifkan&nbsp;</a>
+                                                    <a href="<?= base_url('dashboard/user_baru_tolak/' . $r->id_admin)  ?>" class="btn btn-danger mb-2 " onClick="return confirm('Apakah Anda yakin untuk Me Non-Aktifkan ?')">Non-Aktifkan&nbsp;</a>
                                                 <?php  } ?>
                                             </div>
                                         </td>
                                     </tr>
-
+                                <?php $no++;
+                                } ?>
 
                             </tbody>
-                        <?php $no++;
-                                } ?>
+
                         </table>
                     </div>
                 </div>

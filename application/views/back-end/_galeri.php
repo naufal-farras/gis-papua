@@ -33,7 +33,7 @@
                     </div>
                     <div class="card-body">
                         <div>
-                            <a href="<?= base_url('dashboard/galeri_tambah') ?>" class="btn btn-primary m-2 ">Tambah Foto</a>
+                            <a href="<?= base_url('dashboard/galeri_tambah') ?>" class="btn btn-primary m-2 "> Tambah Foto <i class="fa fa-plus-circle"></i></a>
                         </div>
                         <table id="bootstrap-data-table" class="table table-striped table-bordered">
                             <thead>
@@ -63,17 +63,17 @@
                                             <div>
                                                 <a href="<?= base_url('dashboard/galeri_edit/' . $r->id_galeri) ?>" class="btn btn-primary mb-2 "><i class="fa fa-pencil-square-o"></i></a>
 
-                                                <a href="<?= base_url('dashboard/galeri_delete/' . $r->id_galeri) ?>" class="btn btn-danger mb-2 "><i class="fa fa-trash-o"></i>&nbsp;</a>
+                                                <a href="<?= base_url('dashboard/galeri_delete/' . $r->id_galeri) ?>" class="btn btn-danger mb-2 " onClick="return confirm('Apakah Anda yakin akan Menghapus ?')"><i class="fa fa-trash-o"></i>&nbsp;</a>
 
                                             </div>
                                         </td>
                                     </tr>
 
-
-                            </tbody>
-                        <?php
+                                <?php
                                     $no++;
                                 } ?>
+                            </tbody>
+
 
                         </table>
                     </div>

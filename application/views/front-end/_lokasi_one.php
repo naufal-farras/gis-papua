@@ -4,9 +4,13 @@
             <div class="col-12">
                 <div class="single-video-area bg-white mb-30 box-shadow">
                     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+                    <?php
+                    foreach ($key->result() as $row) {
 
-                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-6424NGTczmQEBXcLzQk2QmbJEOKvat8&language=id&region=ID"></script>
-
+                        $key = $row->api_key;
+                    ?>
+                        <script src="<?= $key ?>"></script>
+                    <?php }  ?>
                     <script>
                         <?php
                         $id = $this->uri->segment(3);
