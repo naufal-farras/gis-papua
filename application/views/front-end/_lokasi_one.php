@@ -215,13 +215,13 @@
                         <div class="row">
                             <div class="col-12 col-lg-12">
 
-                                <p class="text-justify"><?= $lo['keterangan'] ?>
-                                    <!-- <pre class="text-justify"><?= $lo['keterangan'] ?></pre> -->
+                                <!-- <p class="text-justify"><?= $lo['keterangan'] ?> -->
+                                <p class="text-justify"><?= $lo['keterangan'] ?></p>
 
 
                             </div>
                             <div class="col-12 col-lg-4">
-                                <img class="mb-15" src="img/bg-img/51.jpg" alt="">
+                                <!-- <img class="mb-15" src="img/bg-img/51.jpg" alt=""> -->
                             </div>
                         </div>
 
@@ -231,7 +231,8 @@
                 </div>
 
                 <!-- Related Post Area -->
-                <div class="related-post-area bg-white mb-20 px-30 pt-30  box-shadow">
+                <div class="related-post-area bg-white mt-30 mb-30 p-30 box-shadow px-25">
+
                     <!-- Section Title -->
                     <div class="section-heading">
                         <h5>Galeri Lokasi</h5>
@@ -247,11 +248,12 @@
                             $id = $row['id'];
                         }
                         if ($id_lokasi != $id) { ?>
-                            <div class="col-12 col-md-6 col-lg-12">
-                                <div class="single-blog-post style-4 mb-10">
+                            <div class="col-12 col-md-6 col-lg-12 ">
+                                <div class="single-blog-post style-4 mb-5">
 
                                     <div class="post-thumbnail">
                                         <span style="color: red; font-size: 25px">Gambar Belum Tersedia</span>
+                                        <br>
                                     </div>
 
                                 </div>
@@ -263,9 +265,7 @@
 
                                         <div class="post-thumbnail">
                                             <a href="#" data-target="#ModalGalery<?= $r->id_galeri ?>" data-toggle="modal" class="thumbnail"><img src="<?= base_url('uploads/galeri/') . $r->gambar ?>" alt=""></a>
-                                            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                                            Launch demo modal
-                                        </button> -->
+
                                         </div>
 
                                     </div>

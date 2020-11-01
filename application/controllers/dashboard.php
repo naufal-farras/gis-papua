@@ -129,6 +129,7 @@ class Dashboard extends CI_Controller
         } else {
             $data['k'] = $this->db->get('kategori');
             $data['lokasi'] = $this->db->get('lokasi')->result();
+            $data['key'] = $this->db->query("SELECT * from setting where id='1' ");
 
             $data['l'] = $this->db->get_where('lokasi', array('id' => $id))->row_array();
             $this->template->load('back-end/_template', 'back-end/_lokasi_edit', $data);
@@ -438,7 +439,6 @@ class Dashboard extends CI_Controller
     {
         if (isset($_POST['simpan'])) {
             if ($_FILES['gambar']['error'] <> 4) {
-
                 $config['upload_path'] = './uploads/galeri';
                 $config['allowed_types'] = 'jpg|png|gif|bmp|jpeg';
                 // $config['file_name']            = $this->id_berita;
@@ -685,6 +685,120 @@ class Dashboard extends CI_Controller
         } else {
             $data['key'] = $this->db->query("SELECT * from setting where id='1' ");
             $this->template->load('back-end/_template', 'back-end/_setting_api', $data);
+        }
+    }
+
+    public function setting_web()
+    {
+        $data['key'] = $this->db->query("SELECT * from set_web where id='1' ")->row_array();
+        $data['key1'] = $this->db->query("SELECT * from sampul where id='1' ")->row_array();
+
+        $data['key2'] = $this->db->query("SELECT * from sampul where id='2' ")->row_array();
+
+        $data['sam'] = $this->db->query("SELECT * from sampul")->row_array();
+
+
+        $this->template->load('back-end/_template', 'back-end/_setting_web', $data);
+
+        if (isset($_POST['update'])) {
+            if ($_FILES['ikon']['error'] <> 4) {
+
+                $config['upload_path'] = './uploads/setting';
+                $config['allowed_types'] = 'jpg|jpeg|png';
+                // $this->load->library('upload', $config);
+                $this->upload->initialize($config);
+
+
+                if (!$this->upload->do_upload('ikon')) {
+                    $error = array('error' => $this->upload->display_errors());
+                    // $this->detail_user($error);
+                } else {
+                    $hasil = $this->upload->data();
+                    $data = array(
+                        // 'judul'         => $this->input->post('judul'),
+                        'ikon_web'    => $hasil['file_name'],
+                        // 'footer'      => $this->input->post('footer'),
+
+                    );
+
+                    $id        = 1;
+                    $query     = $this->db->get_where('set_web', array('id' => $id))->row_array();
+                    unlink("./uploads/setting/" . $query['ikon']);
+
+                    $this->db->where('id', $id);
+                    $this->db->update('set_web', $data);
+                    redirect('dashboard/setting_web');
+                }
+            } else {
+                $data = array(
+
+                    'footer'      => $this->input->post('footer'),
+
+                );
+                $this->db->where('id', 1);
+                $this->db->update('set_web', $data);
+                redirect('dashboard/setting_web');
+            }
+        }
+
+        if (isset($_POST['tambah'])) {
+            if ($_FILES['sampul']['error'] <> 4) {
+                $config['upload_path'] = './uploads/sampul';
+                $config['allowed_types'] = 'jpg|png|gif|bmp|jpeg';
+                // $config['file_name']            = $this->id_berita;
+                $config['overwrite']            = true;
+                // $config['max_size']             = 1024; // 1MB
+                // $config['max_width']            = 1024;
+                // $config['max_height']           = 768;
+
+                // $this->load->library('upload', $config);
+                $this->upload->initialize($config);
+
+                if (!$this->upload->do_upload('sampul')) {
+                    $error = array('error' => $this->upload->display_errors());
+
+                    echo "Upload Gagal";
+                } else {
+                    $hasil = $this->upload->data();
+                    $data = array(
+
+                        'sampul'             => $hasil['file_name'],
+                    );
+                    $this->db->where('id', 1);
+                    $this->db->update('sampul', $data);
+                    redirect('dashboard/setting_web');
+                }
+            }
+        }
+
+        if (isset($_POST['tambah2'])) {
+            if ($_FILES['sampul2']['error'] <> 4) {
+                $config['upload_path'] = './uploads/sampul';
+                $config['allowed_types'] = 'jpg|png|gif|bmp|jpeg';
+                // $config['file_name']            = $this->id_berita;
+                $config['overwrite']            = true;
+                // $config['max_size']             = 1024; // 1MB
+                // $config['max_width']            = 1024;
+                // $config['max_height']           = 768;
+
+                // $this->load->library('upload', $config);
+                $this->upload->initialize($config);
+
+                if (!$this->upload->do_upload('sampul2')) {
+                    $error = array('error' => $this->upload->display_errors());
+
+                    echo "Upload Gagal";
+                } else {
+                    $hasil = $this->upload->data();
+                    $data = array(
+
+                        'sampul'             => $hasil['file_name'],
+                    );
+                    $this->db->where('id', 2);
+                    $this->db->update('sampul', $data);
+                    redirect('dashboard/setting_web');
+                }
+            }
         }
     }
 }

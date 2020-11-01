@@ -41,7 +41,13 @@
                 <nav class="classy-navbar justify-content-between" id="magNav">
 
                     <!-- Nav brand -->
-                    <a href="<?= base_url('') ?>" class="nav-brand"><img src="<?= base_url('icon2.png') ?>" alt=""></a>
+                    <?php
+                    $data = $this->db->query("SELECT * from set_web");
+                    foreach ($data->result() as $row) {
+                    ?>
+                        <a href="<?= base_url('') ?>" class="navbar-brand"><img src="<?= base_url() . 'uploads/setting/' .  $row->ikon_web ?> "></a>
+                    <?php } ?>
+
 
 
                     <!-- Navbar Toggler -->

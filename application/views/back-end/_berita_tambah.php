@@ -47,7 +47,6 @@
                                         <?php
                                         $id_session = $this->session->id;
                                         $name_session = $this->session->nama;
-
                                         ?>
                                         <input name="id_admin" type="hidden" value="<?= $id_session ?>">
                                         <input name="name_admin" type="hidden" value="<?= $name_session ?>">

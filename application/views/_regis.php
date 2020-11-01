@@ -50,18 +50,20 @@
                         </div>
 
                         <form method="post" action="<?= base_url('Register') ?>">
+
                             <div class="form-group">
 
 
-                                <input type="text" name="username" required class="form-control" placeholder="User Name">
+                                <input type="text" onkeypress='return validUser(event)' name="username" required class="form-control" placeholder="User Name">
 
-                                <input type="text" required name="name" class="form-control" placeholder="Masukan Nama Lengkap">
+                                <input type="text" required name="name" onkeypress='return isText(event)' class="form-control" placeholder="Masukan Nama Lengkap">
 
                                 <input type="text" name="email" class="form-control" placeholder="Email">
 
                                 <textarea name="alamat" class="form-control" placeholder="Alamat Lengkap"></textarea>
 
-                                <input type="password" name="pass" class="form-control" placeholder="Password">
+                                <input type="password" onblur="checkLength(this)" id="groupidtext" minlength="6" maxlength="20" name="password" class="form-control" placeholder="Password">
+                                <span id="notif"></span>
                             </div>
 
                             <div class="form-group">
@@ -95,6 +97,30 @@
     <!-- Active js -->
 
     <script src="<?= base_url('mag/js/active.js') ?>"></script>
+    <script>
+        function validUser(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if ((charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122) && charCode > 31 && charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+            return true;
+        }
+    </script>
+    <script>
+        function checkLength(el) {
+            if (el.value.length != 6) {
+                document.getElementById("notif").innerHTML = "Password harus lebih dari 6 Karakter";
+            }
+        }
+    </script>
+    <script>
+        function isText(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if ((charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122) && charCode > 32) {
+                return false;
+            }
+            return true;
+        }
+    </script>
 </body>
 
 </html>

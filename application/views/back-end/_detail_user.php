@@ -75,7 +75,7 @@
                                 <button name="update" type="submit" class="btn btn-success mt-2">
                                     <i class="fa fa-save"></i>&nbsp; Update</button>
                                 <?php if ($this->session->level  == '0') { ?>
-                                    <a href="<?= base_url('dashboard/user') ?>" class="btn btn-primary btn-flat"><i class="fa fa-repeat"></i> Kembali</a>
+                                    <a href="<?= base_url('dashboard/user') ?>" class="btn btn-primary mt-2 btn-flat"><i class="fa fa-repeat"></i> Kembali</a>
                                 <?php  } ?>
 
                             </div>

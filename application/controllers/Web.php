@@ -9,7 +9,7 @@ class Web extends CI_Controller
     }
     public function index()
     {
-        $data['l'] = $this->db->query("SELECT * FROM lokasi GROUP BY nama ASC LIMIT 4");
+        $data['l'] = $this->db->query("SELECT * FROM lokasi where status='terima' GROUP BY nama ASC LIMIT 4 ");
         $data['bp'] = $this->db->query("SELECT * FROM berita GROUP BY dibaca DESC LIMIT 5");
         $data['bt'] = $this->db->query("SELECT * FROM berita GROUP BY id_berita DESC LIMIT 5");
         $data['key'] = $this->db->query("SELECT * from setting where id='1' ");
@@ -32,7 +32,9 @@ class Web extends CI_Controller
     {
         $data['bp'] = $this->db->query("SELECT * FROM berita GROUP BY dibaca DESC LIMIT 5");
         $data['bt'] = $this->db->query("SELECT * FROM berita GROUP BY id_berita DESC LIMIT 5");
-        $data['la'] = $this->db->get("lokasi");
+        $data['la'] = $this->db->query("SELECT * FROM lokasi where status='terima'");
+
+        // $data['la'] = $this->db->get("lokasi");
         $this->template->load('front-end/_template', 'front-end/_lokasi', $data);
     }
 

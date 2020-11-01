@@ -6,11 +6,14 @@
                 <!-- Copywrite Text -->
                 <div class="col-12 col-sm-6">
                     <p class="copywrite-text">
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy;<script>
-                            document.write(new Date().getFullYear());
-                        </script> All rights reserved | by <a href="#" target="_blank">Admin</a>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        <?php
+                        $data = $this->db->query("SELECT * from set_web");
+                        foreach ($data->result() as $row) {
+                        ?>
+                            <p><?= $row->footer ?> </p>
+
+                        <?php } ?>
+
                     </p>
                 </div>
 

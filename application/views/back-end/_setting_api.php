@@ -13,7 +13,8 @@
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
                             <li><a href="#">Dashboard</a></li>
-                            <!-- <li><a href="#">Data Lokasi</a></li> -->
+                            <li><a href="#">Setting</a></li>
+
                             <li class="active">Setting API</li>
                         </ol>
                     </div>

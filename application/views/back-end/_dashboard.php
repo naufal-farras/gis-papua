@@ -72,7 +72,7 @@
 
                                 // Pengambilan data dari database
                                 <?php
-                                $as = $this->db->query("SELECT l.id, l.nama, l.alamat, l.latittude, l.longitude, k.nama_kategori, k.ikon FROM lokasi as l, kategori as k WHERE l.kategori=k.id");
+                                $as = $this->db->query("SELECT l.id, l.nama, l.alamat, l.latittude, l.longitude, k.nama_kategori, k.ikon FROM lokasi as l, kategori as k WHERE l.kategori=k.id and status='terima'");
                                 foreach ($as->result() as $data) {
                                     $nama   = $data->nama;
                                     $alamat   = $data->alamat;

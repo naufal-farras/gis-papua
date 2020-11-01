@@ -8,6 +8,7 @@
     <title>Dashboard</title>
 
     <!-- Favicon -->
+
     <link rel="icon" href="<?= base_url('icon.png') ?>">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,7 +33,12 @@
         <div class="top-left">
             <div class="navbar-header">
 
-                <a class="navbar-brand" href="./"><img src="<?php echo base_url(); ?>icon4.png"></a>
+                <?php
+                $data = $this->db->query("SELECT * from set_web");
+                foreach ($data->result() as $row) {
+                ?>
+                    <a href="<?= base_url('dashboard') ?>" class="navbar-brand"><img src="<?= base_url() . 'uploads/setting/' .  $row->ikon_web ?> "></a>
+                <?php } ?>
 
 
                 <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
@@ -137,12 +143,37 @@
 
                             </ul>
                             </li>
-                            <li>
-                                <a href="<?= base_url() . 'dashboard/setting_api' ?>"><i class="menu-icon fa fa-cog"></i>Setting API Maps </a>
-                            </li>
-                            <li>
-                                <a href="<?= base_url() . 'auth/logout' ?>"><i class="menu-icon fa fa-sign-out"></i>Logout </a>
-                            </li>
+
+
+                            <?php
+                            if ($this->session->level == '0') { ?>
+                                <li class="menu-item-has-children">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                        <i class="menu-icon fa fa-cog"></i>Setting</a>
+                                <?php  } ?>
+
+                                <ul class="sub-menu children dropdown-menu">
+
+                                    <li> <?php
+                                            if ($this->session->level == '0') { ?>
+                                            <a href="<?= base_url('dashboard/setting_web') ?>">Setting Website </a>
+                                        <?php  } ?>
+                                    </li>
+                                    <?php if ($this->session->level == '0') { ?>
+                                        <li><i class="menu-icon fa "></i><a href="<?= base_url('dashboard/setting_api') ?>">Setting API Maps </a></li>
+                                    <?php  } ?>
+
+
+
+                                </ul>
+                                </li>
+
+
+
+                                <li>
+                                    <a href="<?= base_url() . 'auth/logout' ?>"><i class="menu-icon fa fa-sign-out"></i>Logout </a>
+                                </li>
 
                 </div><!-- /.navbar-collapse -->
             </nav>
